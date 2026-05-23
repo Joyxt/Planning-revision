@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* 1. On indique à Tailwind v4 comment gérer le mode sombre (via la classe .dark) */
+@custom-variant dark (&:where(.dark, .dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-brand-dark: #0F172A;
+  --color-brand-violet: #6D28D9;
+  --color-brand-gray: #475569;
+  --color-brand-light: #F8FAFC;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* 2. MODE CLAIR (Valeurs par défaut) */
+  color: #0f172a;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  background-attachment: fixed;
+  
+  /* Transition douce pour basculer sans flash */
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* 3. MODE SOMBRE (Déclenché quand le ThemeProvider ajoute .dark sur le HTML) */
+html.dark body {
+  color: #f8fafc;
+  /* Un très beau dégradé sombre (Bleu Nuit vers Violet Profond) */
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
 }
