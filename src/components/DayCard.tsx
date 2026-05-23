@@ -21,9 +21,9 @@ interface DayCardProps {
 
 const EXAM_DATES: Record<string, string> = {
   "2026-06-10": "ORAL",
-  "2026-06-26": "Épreuve de français (matin) et épreuve de mathématiques (après-midi).",
+  "2026-06-26": "Épreuve de français (matin) épreuve de mathématiques (après-midi).",
   "2026-06-29": "Histoire-géographie et enseignement moral et civique (matin) ainsi que Sciences (après-midi).",
-  "2026-06-30": "la langue vivante étrangère"
+  "2026-06-30": "Langue vivante étrangère"
 };
 
 const ENCOURAGEMENT_MESSAGES = [
